@@ -107,6 +107,49 @@
         box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         z-index: 1000;
       }
+      .gallery-featured {
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+  margin: 0 auto 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-featured img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+}
+
+.gallery-featured img.active {
+  opacity: 1;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-thumbs img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.gallery-thumbs img:hover {
+  transform: scale(1.05);
+}
+
   </style>
 </head>
 <body>
@@ -181,12 +224,18 @@
   <section id="pricing" class="services">
     <h2>Прайс-лист</h2>
     <ul style="list-style: none; padding: 0; margin-top: 20px;">
-      <li>💇‍♀️ Женская стрижка — от 5000-9000т</li>
-      <li>🎨 Окрашивание волос — от 6000т</li>
-      <li>✨ Укладка — от 3500т</li>
-      <li>💅 Маникюр/Педикюр — от 6000т</li>
+      <li>💇‍♀️ Стрижки всех видов — от 5 000 ₸</li>
+      <li>🎨 Укладки, прически — от 3 500 ₸</li>
+      <li>💇‍♀️ Покраска (все виды сложности) — от 6 000 ₸</li>
+      <li>🎨 Тридинг (бровей и усиков) — от 2 000 ₸</li>
+      <li>✨ Прокол ушей — от 3 000 ₸</li>
+      <li>💅 Гелевое наращивание — от 6 500 ₸</li>
+      <li>🎨 Дизайн любого вида — от 1 500 ₸</li>
+      <li>💅 Покрытие гель-лак — от 4 000 ₸</li>
+      <li>💅 Педикюр — от 6 000 ₸</li>
     </ul>
   </section>
+  
 
   <section id="booking" class="contact">
     <h2>Записаться онлайн</h2>
@@ -217,34 +266,36 @@
       <li><strong>Сколько длится окрашивание?</strong><br>От 1.5 до 3 часов в зависимости от техники и длины волос.</li>
     </ul>
   </section>
-
+  
   <section id="gallery" class="services">
     <h2>Фотогалерея</h2>
-    <div class="service" style="max-width: 600px; margin: 0 auto;">
-      <img id="galleryImage" src="https://i-fotok.ru/images/strizhka-veterok-na-srednie-volosy/strizhka-veterok-na-srednie-volosy_9.jpeg" alt="Галерея" style="width: 100%; height: auto; border-radius: 10px;">
+  
+    <div class="gallery-featured" id="featured-gallery">
+      <img src="https://i-fotok.ru/images/strizhka-veterok-na-srednie-volosy/strizhka-veterok-na-srednie-volosy_9.jpeg" class="active" alt="слайд 1">
+      <img src="https://i.pinimg.com/736x/b1/ff/f4/b1fff4341745419f8fdf04f0a8fecd7d.jpg" alt="слайд 2">
+      <img src="https://i.pinimg.com/originals/4d/54/49/4d544900934bbc4e6084dc1011173e39.jpg" alt="слайд 3">
+      <img src="https://avatars.mds.yandex.net/i?id=2a47bc8fa9de2bcde79b715447227cd3_l-5283698-images-thumbs&ref=rim&n=13&w=1080&h=1350" alt="слайд 4">
+      <img src="https://i.pinimg.com/originals/0a/44/51/0a44515c083f9df3b9d875dbfd8c02d2.jpg" alt="слайд 5">
+      <img src="https://i.pinimg.com/736x/6a/d5/22/6ad5224fdb7b66aba9e71ee3991f7769.jpg" alt="слайд 6">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67320f3a8e20e43ff790648c_673215dde539ce719901316e/scale_1200" alt="слайд 7">
+      <img src="https://i.pinimg.com/736x/e2/df/ab/e2dfabeed73b6191d3d0212103b975c6.jpg" alt="слайд 8">
+    </div>
+  
+    <div class="gallery-thumbs">
+      <!-- Галерея миниатюр (можно не дублировать, но здесь покажем те же) -->
+      <img src="https://i-fotok.ru/images/strizhka-veterok-na-srednie-volosy/strizhka-veterok-na-srednie-volosy_9.jpeg" alt="">
+      <img src="https://i.pinimg.com/736x/b1/ff/f4/b1fff4341745419f8fdf04f0a8fecd7d.jpg" alt="">
+      <img src="https://i.pinimg.com/originals/4d/54/49/4d544900934bbc4e6084dc1011173e39.jpg" alt="">
+      <img src="https://avatars.mds.yandex.net/i?id=2a47bc8fa9de2bcde79b715447227cd3_l-5283698-images-thumbs&ref=rim&n=13&w=1080&h=1350" alt="">
+      <img src="https://i.pinimg.com/originals/0a/44/51/0a44515c083f9df3b9d875dbfd8c02d2.jpg" alt="">
+      <img src="https://i.pinimg.com/736x/6a/d5/22/6ad5224fdb7b66aba9e71ee3991f7769.jpg" alt="">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67320f3a8e20e43ff790648c_673215dde539ce719901316e/scale_1200" alt="">
+      <img src="https://i.pinimg.com/736x/e2/df/ab/e2dfabeed73b6191d3d0212103b975c6.jpg" alt="">
     </div>
   </section>
   
-  <script>
-    const galleryImages = [
-      "https://i-fotok.ru/images/strizhka-veterok-na-srednie-volosy/strizhka-veterok-na-srednie-volosy_9.jpeg",
-      "https://i.pinimg.com/736x/b1/ff/f4/b1fff4341745419f8fdf04f0a8fecd7d.jpg",
-      "https://i.pinimg.com/originals/4d/54/49/4d544900934bbc4e6084dc1011173e39.jpg",
-      "https://avatars.mds.yandex.net/i?id=2a47bc8fa9de2bcde79b715447227cd3_l-5283698-images-thumbs&ref=rim&n=13&w=1080&h=1350",
-      "https://i.pinimg.com/originals/0a/44/51/0a44515c083f9df3b9d875dbfd8c02d2.jpg",
-      "https://i.pinimg.com/736x/6a/d5/22/6ad5224fdb7b66aba9e71ee3991f7769.jpg",
-      "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_67320f3a8e20e43ff790648c_673215dde539ce719901316e/scale_1200",
-      "https://i.pinimg.com/736x/e2/df/ab/e2dfabeed73b6191d3d0212103b975c6.jpg"
-    ];
   
-    let currentIndex = 0;
-    const galleryImg = document.getElementById("galleryImage");
   
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      galleryImg.src = galleryImages[currentIndex];
-    }, 5000);
-  </script>
   
   
 
@@ -262,6 +313,16 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+  const images = document.querySelectorAll('#featured-gallery img');
+  let index = 0;
+
+  setInterval(() => {
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 5000);
+</script>
 
 </body>
 </html>
