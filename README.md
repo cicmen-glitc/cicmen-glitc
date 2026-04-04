@@ -1,4 +1,4 @@
-# README_generator.py - Код для твоего GitHub README + велоспорт трекер!
+# README_generator.py - GitHub README + велоспорт трекер!
 
 import random
 
